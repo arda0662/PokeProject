@@ -16,6 +16,7 @@
 		6F5C412628743C15009BAB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C412528743C15009BAB96 /* Assets.xcassets */; };
 		6F5C412928743C15009BAB96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C412728743C15009BAB96 /* LaunchScreen.storyboard */; };
 		6F6DB35C2875D32E00C5A938 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DB35B2875D32E00C5A938 /* homeViewController.swift */; };
+		6F858E8428B7D9E600DF60F1 /* pokeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F858E8328B7D9E600DF60F1 /* pokeCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6F5C412828743C15009BAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F5C412A28743C15009BAB96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F6DB35B2875D32E00C5A938 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		6F858E8328B7D9E600DF60F1 /* pokeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,18 @@
 			path = PokeProject;
 			sourceTree = "<group>";
 		};
+		6F858E8228B7D9B100DF60F1 /* subView */ = {
+			isa = PBXGroup;
+			children = (
+				6F858E8328B7D9E600DF60F1 /* pokeCollectionView.swift */,
+			);
+			path = subView;
+			sourceTree = "<group>";
+		};
 		6F96D0F7288EC8CA002D9238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6F858E8228B7D9B100DF60F1 /* subView */,
 				6F5C412228743C14009BAB96 /* Main.storyboard */,
 				6F6DB35B2875D32E00C5A938 /* homeViewController.swift */,
 				6F1796702893F01400EFC1F6 /* detailsVC.swift */,
@@ -185,6 +196,7 @@
 				6F1796712893F01400EFC1F6 /* detailsVC.swift in Sources */,
 				6F6DB35C2875D32E00C5A938 /* homeViewController.swift in Sources */,
 				6F33B715287713EA005DE5E4 /* testModelClass.swift in Sources */,
+				6F858E8428B7D9E600DF60F1 /* pokeCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

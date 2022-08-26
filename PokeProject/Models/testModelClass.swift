@@ -6,7 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
-//struct User(){
-//    
-//}
+struct pokeModel: Codable {
+    let pokeID: Int?
+    let pokeName: String?
+    let image: SomeImage?
+    
+}
+
+public struct SomeImage: Codable {
+    let photo: Data
+    public init(photo: UIImage)  {
+        self.photo = photo.pngData()!
+    }
+}

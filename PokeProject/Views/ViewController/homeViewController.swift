@@ -8,9 +8,11 @@
 import UIKit
 
 class homeViewController: UIViewController  {
-    @IBOutlet var collectionView : UICollectionView!
+    @IBOutlet var pokeCollectionView : UICollectionView!
     let myData = ["First" , "Second", "Third" , "Fourth"]
-    var width : CGFloat?
+    public var width : CGFloat?
+    
+    //private let dataCollectionview:
     //arda
     
 
@@ -27,23 +29,23 @@ class homeViewController: UIViewController  {
     }
     
     private func configureCollectionView() {
-        collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "CollectionViewCell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor(red: 0.352, green: 0.346, blue: 0.328, alpha: 1)
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 10, bottom: 20, right: 10)
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        pokeCollectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: "CollectionViewCell")
+        pokeCollectionView.delegate = self
+        pokeCollectionView.dataSource = self
+        pokeCollectionView.backgroundColor = UIColor(red: 0.352, green: 0.346, blue: 0.328, alpha: 1)
+        pokeCollectionView.contentInset = UIEdgeInsets(top: 8, left: 10, bottom: 20, right: 10)
+        let layout = pokeCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         width = (UIScreen.main.bounds.width - 30)/2
         layout.itemSize = CGSize(width: width!, height: (width!*1.1))
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 16
-        collectionView.collectionViewLayout = layout
-        collectionView.contentInsetAdjustmentBehavior = .always
+        pokeCollectionView.collectionViewLayout = layout
+        pokeCollectionView.contentInsetAdjustmentBehavior = .always
     }
     
     private func configureBackButton() {
         let backButtonText = UIBarButtonItem(title: "PokeDex", style: .plain, target: nil, action: .none)
-        backButtonText.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 21)!], for: .normal)
+        backButtonText.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 16.5)!], for: .normal)
         navigationItem.backBarButtonItem = backButtonText
         navigationItem.backBarButtonItem?.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
 //        navigationController?.navigationBar.titleTextAttributes = [.font : UIFont(name: "MarkerFelt-Thin", size: 20)!]

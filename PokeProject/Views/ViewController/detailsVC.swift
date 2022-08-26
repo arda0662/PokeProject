@@ -24,8 +24,31 @@ class detailsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        self.view.backgroundColor = .blue
+        self.view.backgroundColor = .blue
         imageBackgroundView.backgroundColor = .red
-        imageBackgroundView.layer.cornerRadius = 45
+        imageBackgroundView.clipsToBounds = true
+        imageBackgroundView.layer.cornerRadius = 30
+        imageBackgroundView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        //imageBackgroundView.layer.cornerRadius = CGSize(width: 20, height: 20)
+        imageBackgroundView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        
     }
 }
+
+extension UIView {
+    func roundedCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+}
+
+//public struct CACornerMask : OptionSet {
+//    public init(rawValue: UInt)
+//    public static var layerMinXMinYCorner: CACornerMask { get }
+//    public static var layerMaxXMinYCorner: CACornerMask { get }
+//    public static var layerMinXMaxYCorner: CACornerMask { get }
+//    public static var layerMaxXMaxYCorner: CACornerMask { get }
+//}
