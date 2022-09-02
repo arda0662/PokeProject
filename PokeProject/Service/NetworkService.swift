@@ -17,20 +17,34 @@ class NetworkService {
         self.baseURL = baseURL
     }
     
-    func fetchPokemonData() {
+    typealias completionPokemonData = ([Pokemon]?,Error?) -> Void
+//    typealias failurePokemonData = (PokemonPage?,Error?) -> Void
+    
+    func fetchPokemonData(complitionHandler: @escaping completionPokemonData)  {
         AF.request(baseURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response
             { (responseData) in
             guard let data = responseData.data else {
-                fatalError("Could not get the data")
+                let error = responseData.error
+                complitionHandler(nil, error)
+//                fatalError("Could not get the data")
+                return
             }
+                
             do {
                 let decodedData = try JSONDecoder().decode(PokemonPage.self, from: data)
-                print(decodedData)
+                self.onMain {
+                    complitionHandler(decodedData.results, nil)
+                }
+                
             } catch {
-                print(error)
+                complitionHandler(nil,error)
             }
-        }
+            }.resume()
     }
     
-    
+    func onMain(completion: @escaping () -> Void ) {
+        DispatchQueue.main.async {
+            completion()
+        }
+    }
 }

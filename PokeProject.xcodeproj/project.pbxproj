@@ -13,6 +13,7 @@
 		6F33B718287724DC005DE5E4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F33B716287724DC005DE5E4 /* CollectionViewCell.swift */; };
 		6F33B719287724DC005DE5E4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F33B717287724DC005DE5E4 /* CollectionViewCell.xib */; };
 		6F3ACD9728C1745D006DABB2 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3ACD9628C1745D006DABB2 /* ServiceManager.swift */; };
+		6F3ACD9A28C19D95006DABB2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3ACD9928C19D95006DABB2 /* HomeViewModel.swift */; };
 		6F5C411D28743C14009BAB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C411C28743C14009BAB96 /* AppDelegate.swift */; };
 		6F5C412428743C14009BAB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C412228743C14009BAB96 /* Main.storyboard */; };
 		6F5C412628743C15009BAB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C412528743C15009BAB96 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		6F33B716287724DC005DE5E4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		6F33B717287724DC005DE5E4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		6F3ACD9628C1745D006DABB2 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		6F3ACD9928C19D95006DABB2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6F5C411928743C14009BAB96 /* PokeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5C411C28743C14009BAB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F5C412328743C14009BAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = Designs;
 			sourceTree = "<group>";
 		};
+		6F3ACD9828C19D51006DABB2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F3ACD9928C19D95006DABB2 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6F5C411028743C14009BAB96 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		6F5C411B28743C14009BAB96 /* PokeProject */ = {
 			isa = PBXGroup;
 			children = (
+				6F3ACD9828C19D51006DABB2 /* ViewModel */,
 				6F858E8528C1023200DF60F1 /* Service */,
 				6F33B70E28771341005DE5E4 /* Models */,
 				6F33B70D28771308005DE5E4 /* Views */,
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F33B718287724DC005DE5E4 /* CollectionViewCell.swift in Sources */,
+				6F3ACD9A28C19D95006DABB2 /* HomeViewModel.swift in Sources */,
 				6F5C411D28743C14009BAB96 /* AppDelegate.swift in Sources */,
 				6F1796712893F01400EFC1F6 /* detailsVC.swift in Sources */,
 				6F3ACD9728C1745D006DABB2 /* ServiceManager.swift in Sources */,

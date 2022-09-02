@@ -8,10 +8,16 @@
 import Foundation
 
 class ServiceManager {
+//    typealias =
+//    var pokemonList = [Pokemon]()
     
-    func getPokemonData(url: String) -> [Pokemon]{
-        
-        let pokemonData : PokemonPage = NetworkService(url).fetchPokemonData() //as! PokemonPage
-        let pokemonList = pokemonData.results
+    func getPokemonData(url: String, _ completion : @escaping ([Pokemon]) -> () )  {
+//        let pokemonData: PokemonPage
+
+        NetworkService(url).fetchPokemonData() { PokeList, responseError in
+//            let pokemonData : PokemonPage = PokeDict!
+            let list : [Pokemon] = PokeList!
+            completion(list)
+        }
     }
 }
