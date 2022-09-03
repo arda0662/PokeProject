@@ -13,44 +13,24 @@ class HomeViewModel {
     let baseUrl = "https://pokeapi.co/api/v2/pokemon"
     var PokemonList : [Pokemon] = []
     let serviceManager = ServiceManager()
-    var onComplete                      : ( () -> Void )?
+//    var onComplete                      : ( () -> Void )?
     
-    func getTheData(completion: () -> ()) {
+    
+    init() {
 
         serviceManager.getPokemonData(url: self.baseUrl, { [weak self] pokelist in
-//            self?.PokemonList = tempList
-            DispatchQueue.main.async {
-                self?.PokemonList = pokelist
-//                self?.setPokemonList(poke: pokelist)
-            }
-//            self?.setPokemonList(poke: tempList)
-            self?.onComplete?()
-                print(pokelist)
-                print("EEEEEEEERRRRRRROOOOOOOORRRRRRR")
-
-        })
-        
-        
-//        serviceManager.getPokemonData(url: baseUrl) { [weak self] pokelist in
-//                self?.PokemonList = pokelist
-//                print(pokelist)
-//                print("EEEEEEEERRRRRRROOOOOOOORRRRRRR")
-//
-//        }
+            print("OADSFLALSFKSAFLASKFSAKDFASKF")
+            self?.PokemonList = pokelist
+            print("Ömer Ömer Ömer Ömer Ömer Ömer Ömer ")
 //            DispatchQueue.main.async {
 //                self?.PokemonList = pokelist
-//                print(pokelist)
-//                print("EEEEEEEERRRRRRROOOOOOOORRRRRRR")
+//                print("Ömer Ömer Ömer Ömer Ömer Ömer Ömer ")
+//
 //            }
-//        }
+//            self?.onComplete?()
+//                print(pokelist)
+                print("33333333333333333333333333333333333333333333333333")
+
+        })
     }
-    
-//    func setPokemonList(poke : [Pokemon]) {
-//        self.PokemonList = poke
-//    }
-//    
-//    func getPokemons(Completion: @escaping ([Pokemon]) -> ()) {
-//        Completion(PokemonList)
-//    }
-    
 }

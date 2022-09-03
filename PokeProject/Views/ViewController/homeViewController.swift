@@ -10,7 +10,7 @@ import UIKit
 class homeViewController: UIViewController  {
     @IBOutlet var pokeCollectionView : UICollectionView!
     
-    var pokemonList : [Pokemon]!
+    var pokemonList = [Pokemon]()
 //    private let dataCollectionView = DataCollectionView()
     var homeViewModel : HomeViewModel = HomeViewModel()
     var width : CGFloat?
@@ -27,12 +27,15 @@ class homeViewController: UIViewController  {
 //                self.pokemonList = pokemons
 //                self.pokeCollectionView.reloadData()
 //            }
-//        }
-        homeViewModel.getTheData() {
+//
+//        pokemonList = self.homeViewModel.PokemonList
+//        self.pokemonList = self.homeViewModel.PokemonList
+        
+        DispatchQueue.main.async {
+//            self.pokemonList = self.homeViewModel.PokemonList
             self.pokemonList = self.homeViewModel.PokemonList
-            DispatchQueue.main.async {
-                self.pokeCollectionView.reloadData()
-            }
+            self.pokeCollectionView.reloadData()
+            print("44444444444444444444444444444444")
         }
         setupUI()
 
@@ -78,7 +81,7 @@ extension homeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         print("KkKKKKKK")
 //        print(pokemonList!)
         print("KkKKKKKK")
-        return pokemonList!.count
+        return pokemonList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,6 +89,8 @@ extension homeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         cell.configure(with: UIImage(named: "AnthonyKiedis")!, with: width!)
         cell.backgroundColor = .blue
         cell.layer.cornerRadius = 12
+        let poke = pokemonList[indexPath.item]
+        cell.pokeName.text = poke.name
         return cell
     }
     
