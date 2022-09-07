@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class CollectionViewCell: UICollectionViewCell {
 
@@ -26,16 +28,29 @@ class CollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(with image : UIImage, with width : CGFloat) {
-        myImage.image = image
+    func configure(with imageUrl : String, pokeId : String, with width : CGFloat) {
+        print(imageUrl)
+        AF.request(imageUrl).responseImage { response in
+//            debugPrint(response)
+////
+////            print(response.request)
+////            print(response.response)
+//            debugPrint(response.result)
+
+            if case .success(let image) = response.result {
+                self.myImage.image = image
+            }
+        }
+        
+        
+        
         self.cellCustomView.backgroundColor = .cyan
         //((myImage.frame = CGRect(x: 5, y: 3, width: 10, height: 10)
-        print("Arda")
         
         let newHeight = contentView.frame.size.height / 4
         let newWidth = contentView.frame.size.width / 4
-        print(newWidth)
-        print(newHeight)
+//        print(newWidth)
+//        print(newHeight)
         //myImage.translatesAutoresizingMaskIntoConstraints = false
        
         

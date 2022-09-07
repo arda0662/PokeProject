@@ -13,24 +13,23 @@ class HomeViewModel {
     let baseUrl = "https://pokeapi.co/api/v2/pokemon"
     var PokemonList : [Pokemon] = []
     let serviceManager = ServiceManager()
-//    var onComplete                      : ( () -> Void )?
+    var onComplete : ( () -> Void )? 
     
-    
-    init() {
-
-        serviceManager.getPokemonData(url: self.baseUrl, { [weak self] pokelist in
-            print("OADSFLALSFKSAFLASKFSAKDFASKF")
+    func fetchData() {
+        serviceManager.getPokemonData(url: self.baseUrl) { [weak self] pokelist in
             self?.PokemonList = pokelist
-            print("Ömer Ömer Ömer Ömer Ömer Ömer Ömer ")
-//            DispatchQueue.main.async {
-//                self?.PokemonList = pokelist
-//                print("Ömer Ömer Ömer Ömer Ömer Ömer Ömer ")
-//
-//            }
-//            self?.onComplete?()
-//                print(pokelist)
-                print("33333333333333333333333333333333333333333333333333")
-
-        })
+            self?.onComplete!()
+        }
     }
+    
+    
+    func getPokemonIdFromURL(pokemonUrl: String) -> String {
+        let url = URL(string: pokemonUrl)
+        let id = (url?.lastPathComponent)!
+        return id
+    }
+    
+//    func setImageOfCell(cell: CollectionViewCell, url: String, width: CGFloat) {
+////        guard let imageURL = URL(string: url) else {return}
+//    }
 }

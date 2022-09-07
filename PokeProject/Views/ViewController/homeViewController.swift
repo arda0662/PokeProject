@@ -22,21 +22,7 @@ class homeViewController: UIViewController  {
         super.viewDidLoad()
         self.view.backgroundColor = .red
         self.title = "PokeDex"
-//        DispatchQueue.main.async {
-//            self.homeViewModel.getPokemons() { pokemons in
-//                self.pokemonList = pokemons
-//                self.pokeCollectionView.reloadData()
-//            }
-//
-//        pokemonList = self.homeViewModel.PokemonList
-//        self.pokemonList = self.homeViewModel.PokemonList
-        
-        DispatchQueue.main.async {
-//            self.pokemonList = self.homeViewModel.PokemonList
-            self.pokemonList = self.homeViewModel.PokemonList
-            self.pokeCollectionView.reloadData()
-            print("44444444444444444444444444444444")
-        }
+        getData()
         setupUI()
 
     }
@@ -44,6 +30,17 @@ class homeViewController: UIViewController  {
     private func setupUI() {
         configureCollectionView()
         configureBackButton()
+    }
+    
+    private func getData() {
+        homeViewModel.onComplete = { [weak self] in
+            DispatchQueue.main.async {
+                self?.pokemonList = (self?.homeViewModel.PokemonList)!
+                print("444444444444444")
+                self?.pokeCollectionView.reloadData()
+            }
+        }
+        self.homeViewModel.fetchData()
     }
     
     private func configureCollectionView() {
@@ -70,27 +67,22 @@ class homeViewController: UIViewController  {
     }
 }
 
-//extension homeViewController: DataCollectionViewOutput {
-//    func onSelected(item: Pokemon) {
-//        print(item.id ?? "")
-//    }
-//}
+
 
 extension homeViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("KkKKKKKK")
-//        print(pokemonList!)
-        print("KkKKKKKK")
         return pokemonList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.configure(with: UIImage(named: "AnthonyKiedis")!, with: width!)
         cell.backgroundColor = .blue
         cell.layer.cornerRadius = 12
         let poke = pokemonList[indexPath.item]
         cell.pokeName.text = poke.name
+        let pokeId = homeViewModel.getPokemonIdFromURL(pokemonUrl: poke.url)
+        let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokeId).png"
+        cell.configure(with: imageUrl, pokeId: pokeId, with: width!)
         return cell
     }
     
